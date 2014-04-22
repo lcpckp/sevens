@@ -7,6 +7,8 @@ import javax.swing.*;
 
 public class Sevens extends JComponent implements ActionListener
 {
+	//You can change the size of the board and the base numbers to match the different variants of this game.
+	//The graphics are a little weird if you do something thats not "fives" because the numbers are different sizes and I havent accounted for that yet.
 	public static final int BOARD_WIDTH = 4;
 	public static final int BOARD_HEIGHT = 4;
 	public static final int BASE_LOW = 2;
@@ -93,6 +95,10 @@ public class Sevens extends JComponent implements ActionListener
 					if(HIGHEST_UNLOCKED < BASE * 4)
 						HIGHEST_UNLOCKED = BASE * 4;
 					break;
+					
+					/*	I'm in the process of changing these over to just call the drawToken method rather than have a bunch of lines each.
+						Above is the new way, below is the old way.	*/
+					
 				case BASE * 8: //40
 					g.setColor(new Color(255, 255, 0));
 					g.fillOval(j * 100, i * 100, 74, 74);
