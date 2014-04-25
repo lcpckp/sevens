@@ -9,13 +9,14 @@ public class Sevens extends JComponent implements ActionListener
 {
 	//You can change the size of the board and the base numbers to match the different variants of this game.
 	//The graphics are a little weird if you do something thats not "fives" because the numbers are different sizes and I havent accounted for that yet.
-	public static final int BOARD_WIDTH = 15;
-	public static final int BOARD_HEIGHT = 9;
+	public static final int BOARD_WIDTH = 4;
+	public static final int BOARD_HEIGHT = 4;
 	public static final int BASE_LOW = 2;
 	public static final int BASE_HIGH = 3;
 	public static final int BASE = BASE_LOW + BASE_HIGH;
 	public static int HIGHEST_UNLOCKED = BASE_LOW;
 	public static int[][] board = new int[BOARD_WIDTH][BOARD_HEIGHT];
+	public static boolean full = false;
 	
 
 	public static void main(String[] args)
@@ -40,7 +41,7 @@ public class Sevens extends JComponent implements ActionListener
 		window.requestFocusInWindow();
 		window.setExtendedState(window.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 		
-		Timer t = new Timer(2, game);
+		Timer t = new Timer(1000, game);
 		t.start();
 		
 		
@@ -308,8 +309,10 @@ public class Sevens extends JComponent implements ActionListener
 	public void actionPerformed(ActionEvent e)
 	{
 		Random rand = new Random();
-		switch(rand.nextInt(4))
+		int what = rand.nextInt(4);
+		switch(what)
 		{
+		
 		case 0:
 			moveUP();
 			break;
